@@ -22,6 +22,7 @@ import {
 })
 export class HomeComponent {
 
+  public isSubmit: boolean = false;
   public dataForm = this.fb.group({
     firstName : ['', Validators.required],
     lastName : [''],
@@ -43,8 +44,12 @@ export class HomeComponent {
 
   public onSubmit() {
     this.ds.saveUser(this.dataForm.value);
-    alert('Data Saved');
-    this.router.navigate(['/demo']);
+    this.isSubmit = true;
+    this.dataForm.reset();
+    setTimeout(() => {
+      this.router.navigate(['/demo']);
+    }
+    , 5000);
   }
 
   public resetForm() {

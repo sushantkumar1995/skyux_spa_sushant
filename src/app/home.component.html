@@ -2,6 +2,13 @@
 </app-nav>
 
 <main >
+<sky-alert *ngIf="isSubmit"
+  alertType="info"
+  [closeable]="false"
+  [closed]="false"
+>
+  Data saved successfully! Navigating to show data in grid.
+</sky-alert>
   <div class="sky-form-group" style="max-width: 30%;float: left;">
     <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
       <sky-input-box>
