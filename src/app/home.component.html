@@ -1,0 +1,100 @@
+<app-nav>
+</app-nav>
+
+<main >
+  <div class="sky-form-group" style="max-width: 30%;float: left;">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+      <sky-input-box>
+        <label
+          class="sky-control-label sky-control-label-required"
+          for="firstName"
+        >
+          First Name
+        </label>
+        <input
+          class="sky-form-control"
+          id="firstName"
+          type="text"
+          formControlName="firstName"
+        >
+      </sky-input-box>
+      <sky-input-box>
+        <label
+          class="sky-control-label"
+          for="lastName"
+        >
+          Last Name
+        </label>
+        <input
+          class="sky-form-control"
+          id="lastName"
+          type="text"
+          formControlName="lastName"
+        >
+      </sky-input-box>
+      <sky-input-box>
+        <label
+          class="sky-control-label sky-control-label-required"
+          [for]="emailInput.id"
+        >
+          Email Address
+        </label>
+        <input
+        class="sky-form-control"
+        formControlName="emailAddress"
+        skyId
+        #emailInput="skyId"
+        >
+      </sky-input-box>
+      <sky-input-box>
+        <label
+          class="sky-control-label sky-control-label-required"
+          for="contactNumber"
+        >
+          Contact No.
+        </label>
+        <sky-phone-field
+        [defaultCountry]="'us'"
+        >
+        <input
+          formControlName="contactNumber"
+          skyPhoneFieldInput
+        >
+      </sky-phone-field>
+      </sky-input-box>
+      <sky-input-box>
+        <label
+          class="sky-control-label sky-control-label-required"
+          [for]="dateInput.id"
+        >
+          Date of Birth
+        </label>
+        <sky-datepicker>
+          <input
+            formControlName="dateOfBirth"
+            id="dateOfBirth"
+            skyDatepickerInput
+            skyId
+            type="text"
+            #dateInput="skyId"
+          />
+        </sky-datepicker>
+      </sky-input-box>
+      <sky-input-box>
+        <label
+          class="sky-control-label"
+          for="address"
+        >
+          Address
+        </label>
+        <textarea
+          class="sky-form-control"
+          id="address"
+          formControlName="address"
+        ></textarea>
+      </sky-input-box>
+      <button type="submit" class="sky-btn sky-btn-primary" [disabled] = "!dataForm.valid">Submit</button>
+      <button type="button" class="sky-btn sky-btn-default" (click)="resetForm()" style="margin-left: 10px;">Reset</button>
+    </form>
+  </div>
+</main>
